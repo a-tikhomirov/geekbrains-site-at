@@ -8,7 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import ru.atikhomirov.geekbrains.site.at.common.Page;
 import ru.atikhomirov.geekbrains.site.at.common.PageObject;
-import ru.atikhomirov.geekbrains.site.at.pages.career.CareerPage;
+import ru.atikhomirov.geekbrains.site.at.pages.CareerPage;
+import ru.atikhomirov.geekbrains.site.at.pages.courses.CoursesPage;
 
 public class Sidebar<T> extends PageObject {
 
@@ -42,6 +43,7 @@ public class Sidebar<T> extends PageObject {
         switch (name) {
             case "Курсы": {
                 button = buttonCourses;
+                pageClass = CoursesPage.class;
                 break;
             }
             case "Вебинары": {
