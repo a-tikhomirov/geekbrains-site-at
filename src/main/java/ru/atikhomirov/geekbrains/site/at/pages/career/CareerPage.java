@@ -6,12 +6,14 @@ import ru.atikhomirov.geekbrains.site.at.common.Page;
 import ru.atikhomirov.geekbrains.site.at.common.PageObject;
 import ru.atikhomirov.geekbrains.site.at.sections.Footer;
 import ru.atikhomirov.geekbrains.site.at.sections.Header;
+import ru.atikhomirov.geekbrains.site.at.sections.Search;
 import ru.atikhomirov.geekbrains.site.at.sections.Sidebar;
 
 public class CareerPage extends PageObject implements Page {
     private Header header;
     private Footer footer;
     private Sidebar sidebar;
+    private Search search;
 
     @Override
     public Header getHeader() {
@@ -28,12 +30,14 @@ public class CareerPage extends PageObject implements Page {
         return sidebar;
     }
 
+    @Override
+    public Search getSearch() { return search; }
+
     public CareerPage(WebDriver driver) {
         super(driver);
         header = new Header(driver, this);
-        PageFactory.initElements(driver, header);
         footer = new Footer(driver, this);
-        PageFactory.initElements(driver, footer);
-        sidebar = PageFactory.initElements(driver, Sidebar.class);
+        sidebar = new Sidebar(driver);
+        search = new Search(driver, this);
     }
 }

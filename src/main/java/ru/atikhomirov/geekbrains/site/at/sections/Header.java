@@ -1,5 +1,6 @@
 package ru.atikhomirov.geekbrains.site.at.sections;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,8 +23,10 @@ public class Header extends PageObject {
     public Header(WebDriver driver, Page ownerPage) {
         super(driver);
         this.ownerPage = ownerPage;
+        PageFactory.initElements(driver, this);
     }
 
+    @Step("Проверить элементы страницы в секции header")
     public Page checkSection() {
         checkElementsDisplayed(new WebElement[] {
                 section,
@@ -32,13 +35,15 @@ public class Header extends PageObject {
         return ownerPage;
     }
 
-    public Page checkTitle(String expectedTitle){
+    @Step("Проверить текст заголовка страницы")
+    public Page checkTitle(String expectedTitle) {
         checkText(labelHeader, expectedTitle);
         return ownerPage;
     }
 
-    public Search clickSearch(){
+    @Step("Нажать кнопку поиска в секции header")
+    public Search clickSearch() {
         waitClickable(buttonSearch).click();
-        return PageFactory.initElements(driver, Search.class);
+        return ownerPage.getSearch();
     }
 }

@@ -1,8 +1,10 @@
 package ru.atikhomirov.geekbrains.site.at.sections;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import ru.atikhomirov.geekbrains.site.at.common.Page;
 import ru.atikhomirov.geekbrains.site.at.common.PageObject;
 
@@ -51,8 +53,10 @@ public class Footer extends PageObject {
     public Footer(WebDriver driver, Page ownerPage) {
         super(driver);
         this.ownerPage = ownerPage;
+        PageFactory.initElements(driver, this);
     }
 
+    @Step("Проверить элементы страницы в секции footer")
     public Page checkSection(){
         checkElementsDisplayed(new WebElement[] {
                 section,
@@ -72,7 +76,8 @@ public class Footer extends PageObject {
         return ownerPage;
     }
 
-    public Page checkElementsText(){
+    @Step("Проверить текст элементов страницы в секции footer")
+    public Page checkElementsText() {
         checkText(buttonFeedbacks,"Отзывы");
         checkText(buttonHelp,"Помощь");
         checkText(buttonAbout,"О проекте");

@@ -6,4 +6,5 @@ public interface Page {
     Header getHeader();
     Footer getFooter();
     Sidebar getSidebar();
+    Search getSearch();
 }

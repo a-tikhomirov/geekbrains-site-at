@@ -1,5 +1,6 @@
 package ru.atikhomirov.geekbrains.site.at.sections;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,12 +32,14 @@ public class Sidebar<T> extends PageObject {
 
     public Sidebar(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
-    public Page clickButton(String name){
+    @Step("Нажать на кнопку \"{0}\" в секции sidebar")
+    public Page clickButton(String name) {
         WebElement button = null;
         Class pageClass = CareerPage.class;
-        switch (name){
+        switch (name) {
             case "Курсы": {
                 button = buttonCourses;
                 break;

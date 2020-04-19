@@ -33,6 +33,8 @@ public abstract class PageObject {
         return waitVisible(element).getText();
     }
 
+    protected int getElementInt(WebElement element) { return Integer.valueOf(getElementText(element)); }
+
     // Check elements
     protected void checkText(WebElement element, String expectedText) {
         assertThat(getElementText(element), equalToCompressingWhiteSpace(expectedText));

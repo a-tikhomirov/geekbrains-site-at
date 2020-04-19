@@ -1,5 +1,9 @@
 package ru.atikhomirov.geekbrains.site.at;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,18 +15,23 @@ import ru.atikhomirov.geekbrains.site.at.pages.career.CareerPage;
 
 import java.util.stream.Stream;
 
+@Feature(value = "Проверка страниц")
+@Story(value = "Проверка навигации")
 @DisplayName("Проверка элементов навигации sidebar страницы https://geekbrains.ru/career")
 public class NavigationTest extends BaseTest {
+
+    @Step("Открыть страницу https://geekbrains.ru/career")
     @BeforeEach
-    protected void SetUp(){
+    protected void SetUp() {
         super.setUpDriver();
         driver.get("https://geekbrains.ru/career");
     }
 
+    @Description("Проверка элементов навигации sidebar страницы https://geekbrains.ru/career")
     @DisplayName("Проверка элементов и заголовка Header, проверка элементов Footer")
     @ParameterizedTest(name = "{index} ==> Проверка перехода на страницу \"{0}\"...")
     @MethodSource("stringProvider")
-    void checkSideBarNavigation(String navElementName){
+    void checkSideBarNavigation(String navElementName) {
         PageFactory.initElements(driver, CareerPage.class)
                 .getSidebar().clickButton(navElementName)
                 .getHeader().checkSection()
@@ -31,12 +40,12 @@ public class NavigationTest extends BaseTest {
                 .getFooter().checkElementsText();
     }
 
-    static Stream<String> stringProvider(){
+    static Stream<String> stringProvider() {
         return Stream.of("Курсы", "Вебинары", "Форум", "Блог", "Тесты", "Карьера");
     }
 
     @AfterEach
-    protected void tearDown(){
+    protected void tearDown() {
         super.tearDown();
     }
 }
