@@ -4,6 +4,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.platform.commons.annotation.Testable;
 import org.openqa.selenium.support.PageFactory;
 import ru.atikhomirov.geekbrains.site.at.common.BaseTest;
 import ru.atikhomirov.geekbrains.site.at.pages.AuthPage;
@@ -15,7 +16,6 @@ import ru.atikhomirov.geekbrains.site.at.pages.AuthPage;
 @Execution(ExecutionMode.CONCURRENT)
 public class AuthTest extends BaseTest {
 
-    @Step("Открыть страницу https://geekbrains.ru/login")
     @BeforeAll
     protected void SetUp(){
         super.setUpDriver();

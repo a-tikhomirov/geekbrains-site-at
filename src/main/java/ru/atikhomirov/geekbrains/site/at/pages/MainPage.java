@@ -1,8 +1,7 @@
 package ru.atikhomirov.geekbrains.site.at.pages;
 
 import org.openqa.selenium.WebDriver;
-import ru.atikhomirov.geekbrains.site.at.common.Page;
-import ru.atikhomirov.geekbrains.site.at.common.PageObject;
+import ru.atikhomirov.geekbrains.site.at.common.*;
 import ru.atikhomirov.geekbrains.site.at.sections.*;
 
 public class MainPage extends PageObject implements Page {

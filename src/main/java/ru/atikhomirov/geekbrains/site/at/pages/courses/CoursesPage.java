@@ -6,8 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ru.atikhomirov.geekbrains.site.at.common.Page;
-import ru.atikhomirov.geekbrains.site.at.common.PageObject;
+import ru.atikhomirov.geekbrains.site.at.common.*;
 import ru.atikhomirov.geekbrains.site.at.sections.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;

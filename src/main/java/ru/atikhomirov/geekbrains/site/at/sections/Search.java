@@ -7,8 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.atikhomirov.geekbrains.site.at.common.Page;
-import ru.atikhomirov.geekbrains.site.at.common.PageObject;
+import ru.atikhomirov.geekbrains.site.at.common.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 

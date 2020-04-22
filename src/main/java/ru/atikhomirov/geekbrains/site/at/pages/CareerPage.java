@@ -1,12 +1,8 @@
 package ru.atikhomirov.geekbrains.site.at.pages;
 
 import org.openqa.selenium.WebDriver;
-import ru.atikhomirov.geekbrains.site.at.common.Page;
-import ru.atikhomirov.geekbrains.site.at.common.PageObject;
-import ru.atikhomirov.geekbrains.site.at.sections.Footer;
-import ru.atikhomirov.geekbrains.site.at.sections.Header;
-import ru.atikhomirov.geekbrains.site.at.sections.Search;
-import ru.atikhomirov.geekbrains.site.at.sections.Sidebar;
+import ru.atikhomirov.geekbrains.site.at.common.*;
+import ru.atikhomirov.geekbrains.site.at.sections.*;
 
 public class CareerPage extends PageObject implements Page {
     private Header header;
