@@ -56,19 +56,24 @@ public class CoursesPage extends PageObject implements Page {
         filtersForm = new FiltersForm(driver, this);
     }
 
-    @Step("Проверить наличие текста \"{courses}\" в списке курсов")
-    public CoursesPage checkCourse(String ...courses){
+    @Step("Проверить наличие текста \"{course}\" в списке курсов")
+    private void checkCourse(String course) {
         boolean displayed = true;
+        String xpath = String.format("//span[@class=\"gb-course-card__title-text\"][contains(.,\"%s\")]", course);
+        boolean actual;
+        try {
+            actual = divCourses.findElement(By.xpath(xpath)).isDisplayed();
+        } catch (NoSuchElementException e) {
+            actual = false;
+            e.printStackTrace();
+        }
+        assertThat(actual,is(equalTo(displayed)));
+    }
+
+    //@Step("Проверить наличие текста \"{courses}\" в списке курсов")
+    public CoursesPage checkCourses(String ...courses){
         for (String course : courses) {
-            String xpath = String.format("//span[@class=\"gb-course-card__title-text\"][contains(.,\"%s\")]", course);
-            boolean actual;
-            try {
-                actual = divCourses.findElement(By.xpath(xpath)).isDisplayed();
-            } catch (NoSuchElementException e) {
-                actual = false;
-                e.printStackTrace();
-            }
-            assertThat(actual,is(equalTo(displayed)));
+            checkCourse(course);
         }
         return this;
     }

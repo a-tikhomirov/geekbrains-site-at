@@ -41,17 +41,16 @@ public class FiltersForm extends PageObject {
         return checkBox;
     }
 
-    @Step("Нажать на фильтр {name}")
-    public CoursesPage clickFilter(String name){
-        clickCheckbox(getFilter(name));
-        return coursesPage;
+    @Step("Установить в {state} фильтр {filter}")
+    private void setFilter(boolean state, String filter){
+        WebElement checkbox = getFilter(filter);
+        if (checkbox.isSelected() != state) clickCheckbox(checkbox);
     }
 
-    @Step("Установить в {state} фильтры {filters}")
+    //@Step("Установить в {state} фильтры {filters}")
     public CoursesPage setFilters(boolean state, String ...filters){
         for (String filter : filters) {
-            WebElement checkbox = getFilter(filter);
-            if (checkbox.isSelected() != state) clickCheckbox(checkbox);
+            setFilter(state, filter);
         }
         return coursesPage;
     }

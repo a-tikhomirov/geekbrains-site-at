@@ -34,7 +34,7 @@ public class CoursesTest extends BaseTest {
         )
                 .getHeaderNavigationTab().clickButton("Курсы")
                 .getFiltersForm().setFilters(true, "Бесплатные", "Тестирование")
-                .checkCourse("Тестирование ПО. Уровень 1", "Тестирование ПО. Уровень 2");
+                .checkCourses("Тестирование ПО. Уровень 1", "Тестирование ПО. Уровень 2");
     }
 
     @AfterEach
