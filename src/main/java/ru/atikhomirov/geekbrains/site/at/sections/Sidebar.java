@@ -10,7 +10,7 @@ import ru.atikhomirov.geekbrains.site.at.common.*;
 import ru.atikhomirov.geekbrains.site.at.pages.CareerPage;
 import ru.atikhomirov.geekbrains.site.at.pages.courses.CoursesPage;
 
-public class Sidebar<T> extends PageObject {
+public class Sidebar extends PageObject {
 
     @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/courses\"]")
     private WebElement buttonCourses;
