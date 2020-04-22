@@ -12,11 +12,11 @@ import ru.atikhomirov.geekbrains.site.at.pages.courses.CoursesPage;
 @Feature(value = "Проверка страниц")
 @Story(value = "Проверка страницы Курсы")
 @DisplayName("Проверка результатов фильтрации на странице https://geekbrains.ru/courses")
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Execution(ExecutionMode.CONCURRENT)
 public class CoursesTest extends BaseTest {
 
-    @BeforeAll
+    @Step("Открыть страницу https://geekbrains.ru/login")
+    @BeforeEach
     protected void SetUp(){
         super.setUpDriver();
         driver.get("https://geekbrains.ru/login");
@@ -37,7 +37,7 @@ public class CoursesTest extends BaseTest {
                 .checkCourse("Тестирование ПО. Уровень 1", "Тестирование ПО. Уровень 2");
     }
 
-    @AfterAll
+    @AfterEach
     protected void tearDown(){
         super.tearDown();
     }

@@ -11,12 +11,12 @@ import ru.atikhomirov.geekbrains.site.at.pages.AuthPage;
 @Feature(value = "Проверка страниц")
 @Story(value = "Проверка авторизации")
 @DisplayName("Проверка авторизации на странице https://geekbrains.ru/login")
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Execution(ExecutionMode.CONCURRENT)
 public class AuthTest extends BaseTest {
 
-    @BeforeAll
-    protected void SetUp(){
+    @Step("Открыть страницу https://geekbrains.ru/login")
+    @BeforeEach
+    public void SetUp(){
         super.setUpDriver();
         driver.get("https://geekbrains.ru/login");
     }
@@ -30,8 +30,8 @@ public class AuthTest extends BaseTest {
                 .getHeader().checkTitle("Главная");
     }
 
-    @AfterAll
-    protected void tearDown(){
+    @AfterEach
+    public void tearDown(){
         super.tearDown();
     }
 }
