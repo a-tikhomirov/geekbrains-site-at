@@ -31,4 +31,13 @@ public class PhoneBook {
         }
         return sb.toString();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry entry : records.entrySet()) {
+            sb.append(entry.getValue() + "\t- " + entry.getKey() + "\n");
+        }
+        return sb.toString();
+    }
 }

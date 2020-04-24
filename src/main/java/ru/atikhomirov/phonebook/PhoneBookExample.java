@@ -11,8 +11,10 @@ public class PhoneBookExample {
         phoneBook.add("+7(999)444-44-44", "Иванов");
         phoneBook.add("+7(999)555-55-55", "Иванов");
 
+        System.out.printf("Телефонный справочник:\n%s\n", phoneBook.toString());
+
         String[] results = phoneBook.getPhones("Иванов");
-        System.out.println(Arrays.toString(results));
+        System.out.printf("Результаты поиска по фамилии Иванов:\n%s\n", Arrays.toString(results));
         System.out.println();
 
         System.out.println(phoneBook.searchPhones("Иванов"));
