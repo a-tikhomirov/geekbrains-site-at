@@ -15,11 +15,5 @@ public class GetExample {
         System.out.println(mapDogs.get(new Human("Петр")));
         System.out.println(mapDogs.keySet());
         System.out.println(mapDogs.values());
-
-//        Удаление элементов
-//        boolean remove(Object key); - одного одного элемента по ключу
-//        void clear(); - удаление всех элементов
-//        Сравнение
-//        boolean equals(Object o); - элементы коллекции эквиваленты
     }
 }

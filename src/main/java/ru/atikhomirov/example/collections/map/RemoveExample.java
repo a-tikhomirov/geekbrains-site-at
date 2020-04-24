@@ -17,7 +17,5 @@ public class RemoveExample {
         System.out.println(mapDogs);
         mapDogs.clear();
         System.out.println(mapDogs);
-//        Сравнение
-//        boolean equals(Object o); - элементы коллекции эквиваленты
     }
 }
